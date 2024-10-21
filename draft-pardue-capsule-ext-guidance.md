@@ -86,12 +86,12 @@ HTTP endpoint. In other words, known or unknown types are scoped only to the
 request stream Capsule Protocol usage, nothing else.
 
 For example, proxying UDP in HTTP {{?UDP-PROXYING=RFC9298}} makes use of the
-updgrade token "connect-udp" to enable the Connect Protocol. It describes how
+upgrade token "connect-udp" to enable the Connect Protocol. It describes how
 DATAGRAM capsules ({{Section 3.5 of CAPSULE}}) can be used. Use of other capsule
 types on that data stream is undefined, the expectation being that they are
 ignored on receipt.
 
-Similarly, proxing IP in HTTP {{?IP-PROXYING=RFC9484}} makes use of the upgrade
+Similarly, proxying IP in HTTP {{?IP-PROXYING=RFC9484}} makes use of the upgrade
 token "connect-ip" to enable the Connect Protocol. It defines ADDRESS_ASSIGN,
 ADDRESS_REQUEST, and ROUTE_ADVERTISEMENT capsules ({{Section 4.7 of
 IP-PROXYING}}) and describes how these can be used together with DATAGRAM
@@ -102,16 +102,19 @@ would be able to understand all four capsule types. However, use of
 ADDRESS_ASSIGN, for example, on a "connect-udp" data stream is undefined by
 {{UDP-PROXYING}}.
 
+The {{CAPSULE}} document requires updated text to resolve this ambuguity. Should
+this document be adopted, consensus on the resolution can be established.
+
 ## Negotiating Additional Capsule Type Usage
 
 The second ambiguity with the text in {{Section 3.2 of CAPSULE}} comes from
 ambiguity of intent. Silent dropping of unknown types new can be safely used by
 extensions without prior arrangement or negotiation.
 
-However, some extensions might be built on the assumption a capsule is processed
-by the recipient. For example to send a capsule that elicits some response
-message or behavioural change. Such extensions can benefit from some form of
-explicit negotiation.
+However, some extensions might be built on the assumption that a capsule is
+processed by the recipient. For example to send a capsule that elicits some
+response message or behavioural change. Such extensions can benefit from some
+form of explicit negotiation.
 
 There are several approaches to negotiating the use of new capsule types within
 the scope of a request stream Capsule Protocol. This document does not mandate
@@ -142,6 +145,25 @@ Capsule-Protocol is optional and the upgrade tokens can mandate use of the
 Capsule Protocol without this header field. In such cases, a new header field
 can be defined to support extension negotiation.
 
+# Generic CAPSULE_ERROR code for HTTP/2 and HTTP/3
+
+{{Section 3.3 of CAPSULE}} describes error handling for all HTTP versions. It
+defined the H3_DATAGRAM_ERROR code for HTTP/3, with the description "Datagram or
+Capsule Protocol parse error". Subsequent work that relies on using the Capsule
+protocol has identified that there are situations where using H3_DATAGRAM_ERROR
+can be confusing, such as where DATAGRAM capsules are expressly not allowed, but
+some other processing error related to capsules occurs. Furthermore, there is no
+registered HTTP/2 error code to articulate capsule-related errors (instead, this
+is delegated to HTTP/2 generic malformed handling defined in {{Section 8.1.1 of
+RFC9113}}).
+
+This document registers two generic error codes, CAPSULE_ERROR and
+H3_CAPSULE_ERROR (values TBD), for HTTP/2 and HTTP/3 respectively. This can be
+used as a general-purpose error for anything related to Capsule protocol
+handling, when a more-specific error is not available or is not preferred.
+
+
+
 
 # Security Considerations
 
@@ -161,7 +183,7 @@ connections see {{Section 9.6 of RFC9112}}, {{Section 5.5 of RFC9113}}, and
 
 # IANA Considerations
 
-There are no IANA considerations.
+TODO: register error codes
 
 
 --- back
