@@ -1,6 +1,6 @@
 ---
 title: "Guidance for HTTP Capsule Protocol Extensibility"
-abbrev: "TODO - Abbreviation"
+abbrev: "HTTP Capsule Extension Guidance"
 category: std
 
 docname: draft-pardue-capsule-ext-guidance-latest
@@ -27,7 +27,7 @@ author:
  -
     fullname: "Lucas Pardue"
     organization: Cloudflare
-    email: "lucaspardue.24.7@gmail.com"
+    email: "lucas@lucaspardue.com"
 
 normative:
 
