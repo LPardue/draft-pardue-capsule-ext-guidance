@@ -66,11 +66,12 @@ Table of Contents
    2.  Conventions and Definitions
    3.  The Extensibility of Capsule Type Usage
      3.1.  Negotiating Additional Capsule Type Usage
-   4.  Security Considerations
-   5.  IANA Considerations
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+   4.  Generic CAPSULE_ERROR code for HTTP/2 and HTTP/3
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Acknowledgments
    Author's Address
 
@@ -120,12 +121,12 @@ Table of Contents
    nothing else.
 
    For example, proxying UDP in HTTP [UDP-PROXYING] makes use of the
-   updgrade token "connect-udp" to enable the Connect Protocol.  It
+   upgrade token "connect-udp" to enable the Connect Protocol.  It
    describes how DATAGRAM capsules (Section 3.5 of [CAPSULE]) can be
    used.  Use of other capsule types on that data stream is undefined,
    the expectation being that they are ignored on receipt.
 
-   Similarly, proxing IP in HTTP [IP-PROXYING] makes use of the upgrade
+   Similarly, proxying IP in HTTP [IP-PROXYING] makes use of the upgrade
    token "connect-ip" to enable the Connect Protocol.  It defines
    ADDRESS_ASSIGN, ADDRESS_REQUEST, and ROUTE_ADVERTISEMENT capsules
    (Section 4.7 of [IP-PROXYING]) and describes how these can be used
@@ -136,6 +137,10 @@ Table of Contents
    However, use of ADDRESS_ASSIGN, for example, on a "connect-udp" data
    stream is undefined by [UDP-PROXYING].
 
+   The [CAPSULE] document requires updated text to resolve this
+   ambuguity.  Should this document be adopted, consensus on the
+   resolution can be established.
+
 3.1.  Negotiating Additional Capsule Type Usage
 
    The second ambiguity with the text in Section 3.2 of [CAPSULE] comes
@@ -143,10 +148,10 @@ Table of Contents
    be safely used by extensions without prior arrangement or
    negotiation.
 
-   However, some extensions might be built on the assumption a capsule
-   is processed by the recipient.  For example to send a capsule that
-   elicits some response message or behavioural change.  Such extensions
-   can benefit from some form of explicit negotiation.
+   However, some extensions might be built on the assumption that a
+   capsule is processed by the recipient.  For example to send a capsule
+   that elicits some response message or behavioural change.  Such
+   extensions can benefit from some form of explicit negotiation.
 
    There are several approaches to negotiating the use of new capsule
    types within the scope of a request stream Capsule Protocol.  This
@@ -181,7 +186,26 @@ Table of Contents
    Capsule Protocol without this header field.  In such cases, a new
    header field can be defined to support extension negotiation.
 
-4.  Security Considerations
+4.  Generic CAPSULE_ERROR code for HTTP/2 and HTTP/3
+
+   Section 3.3 of [CAPSULE] describes error handling for all HTTP
+   versions.  It defined the H3_DATAGRAM_ERROR code for HTTP/3, with the
+   description "Datagram or Capsule Protocol parse error".  Subsequent
+   work that relies on using the Capsule protocol has identified that
+   there are situations where using H3_DATAGRAM_ERROR can be confusing,
+   such as where DATAGRAM capsules are expressly not allowed, but some
+   other processing error related to capsules occurs.  Furthermore,
+   there is no registered HTTP/2 error code to articulate capsule-
+   related errors (instead, this is delegated to HTTP/2 generic
+   malformed handling defined in Section 8.1.1 of [HTTP/2]).
+
+   This document registers two generic error codes, CAPSULE_ERROR and
+   H3_CAPSULE_ERROR (values TBD), for HTTP/2 and HTTP/3 respectively.
+   This can be used as a general-purpose error for anything related to
+   Capsule protocol handling, when a more-specific error is not
+   available or is not preferred.
+
+5.  Security Considerations
 
    The ability to send capsule types that the peer may not know, and is
    therefore required to ignore, can be abused to cause a peer to expend
@@ -197,13 +221,13 @@ Table of Contents
    Section 9.6 of [HTTP/1.1], Section 5.5 of [HTTP/2], and Section 9 of
    [HTTP/3].
 
-5.  IANA Considerations
+6.  IANA Considerations
 
-   There are no IANA considerations.
+   TODO: register error codes
 
-6.  References
+7.  References
 
-6.1.  Normative References
+7.1.  Normative References
 
    [CAPSULE]  Schinazi, D. and L. Pardue, "HTTP Datagrams and the
               Capsule Protocol", RFC 9297, DOI 10.17487/RFC9297, August
@@ -218,7 +242,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-6.2.  Informative References
+7.2.  Informative References
 
    [EXT-CONNECT2]
               McManus, P., "Bootstrapping WebSockets with HTTP/2",
