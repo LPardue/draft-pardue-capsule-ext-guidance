@@ -102,7 +102,7 @@ would be able to understand all four capsule types. However, use of
 ADDRESS_ASSIGN, for example, on a "connect-udp" data stream is undefined by
 {{UDP-PROXYING}}.
 
-The {{CAPSULE}} document requires updated text to resolve this ambuguity. Should
+The {{CAPSULE}} document requires updated text to resolve this ambiguity. Should
 this document be adopted, consensus on the resolution can be established.
 
 ## Negotiating Additional Capsule Type Usage
