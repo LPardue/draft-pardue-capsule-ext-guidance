@@ -4,8 +4,8 @@
 
 Network Working Group                                          L. Pardue
 Internet-Draft                                                Cloudflare
-Intended status: Standards Track                         21 October 2024
-Expires: 24 April 2025
+Intended status: Standards Track                         22 October 2024
+Expires: 25 April 2025
 
 
             Guidance for HTTP Capsule Protocol Extensibility
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 April 2025.
+   This Internet-Draft will expire on 25 April 2025.
 
 Copyright Notice
 
@@ -138,7 +138,7 @@ Table of Contents
    stream is undefined by [UDP-PROXYING].
 
    The [CAPSULE] document requires updated text to resolve this
-   ambuguity.  Should this document be adopted, consensus on the
+   ambiguity.  Should this document be adopted, consensus on the
    resolution can be established.
 
 3.1.  Negotiating Additional Capsule Type Usage
