@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-20T01:13:44.869864+00:00",
+  "timestamp": "2024-10-22T01:08:57.179478+00:00",
   "repo": "LPardue/draft-pardue-capsule-ext-guidance",
   "labels": [
     {
@@ -62,9 +62,17 @@
       "labels": [],
       "body": "RFC 9297 defines H3_DATAGRAM_ERROR as \"Datagram or Capsule Protocol parse error\". Then it started being used to convey errors during the parsing of data inside capsules by [connect-ip](https://www.rfc-editor.org/rfc/rfc9484#section-4.7.2-8):\r\n\r\n> If any of the capsule fields are malformed upon reception, the receiver of the capsule MUST follow the error-handling procedure defined in [Section 3.3](https://rfc-editor.org/rfc/rfc9297#section-3.3) of [[HTTP-DGRAM](https://www.rfc-editor.org/rfc/rfc9484#RFC9297)].\r\n\r\nThis has caused confusion for readers, both in [QUIC Proxying](https://github.com/ietf-wg-masque/draft-ietf-masque-quic-proxy/pull/118#discussion_r1786562062) and in [WRAP_UP](https://github.com/DavidSchinazi/draft-schinazi-httpbis-wrap-up/issues/3).\r\n\r\nSo we should define more generic capsule parsing errors for h2 and h3.",
       "createdAt": "2024-10-16T17:23:42Z",
-      "updatedAt": "2024-10-16T17:23:42Z",
+      "updatedAt": "2024-10-21T23:19:57Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "LPardue",
+          "authorAssociation": "OWNER",
+          "body": "Added some text in https://github.com/LPardue/draft-pardue-capsule-ext-guidance/commit/9d06950a5d1684c56e51db1949b55d012db7fbd3",
+          "createdAt": "2024-10-21T23:19:57Z",
+          "updatedAt": "2024-10-21T23:19:57Z"
+        }
+      ]
     }
   ],
   "pulls": []
