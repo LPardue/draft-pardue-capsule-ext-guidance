@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-22T01:08:57.179478+00:00",
+  "timestamp": "2024-10-24T01:07:56.209919+00:00",
   "repo": "LPardue/draft-pardue-capsule-ext-guidance",
   "labels": [
     {
@@ -73,7 +73,76 @@
           "updatedAt": "2024-10-21T23:19:57Z"
         }
       ]
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOKxOUVM6bOFB7",
+      "title": "Table of options",
+      "url": "https://github.com/LPardue/draft-pardue-capsule-ext-guidance/issues/3",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "For 3.1:\r\n\r\n| Option | HbH | E2E |\r\n|:--|-|-|\r\n| Capsules |   | \u2705 |\r\n| SETTINGS | \u2705 | |\r\n| Header | | \u2705 |",
+      "createdAt": "2024-10-22T03:53:46Z",
+      "updatedAt": "2024-10-22T03:53:46Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOKxOUVM6bOFLG",
+      "title": "Does the case in S3 need to be in its own section?",
+      "url": "https://github.com/LPardue/draft-pardue-capsule-ext-guidance/issues/4",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There are two major problems, but you hide this one under the generic heading.",
+      "createdAt": "2024-10-22T03:54:18Z",
+      "updatedAt": "2024-10-22T04:01:18Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "LPardue",
+          "authorAssociation": "OWNER",
+          "body": "Fair point",
+          "createdAt": "2024-10-22T04:01:17Z",
+          "updatedAt": "2024-10-22T04:01:17Z"
+        }
+      ]
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 2,
+      "id": "PR_kwDOKxOUVM5_ZhfK",
+      "title": "bug is big",
+      "url": "https://github.com/LPardue/draft-pardue-capsule-ext-guidance/pull/2",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-22T03:49:48Z",
+      "updatedAt": "2024-10-22T04:03:33Z",
+      "baseRepository": "LPardue/draft-pardue-capsule-ext-guidance",
+      "baseRefName": "main",
+      "baseRefOid": "9d06950a5d1684c56e51db1949b55d012db7fbd3",
+      "headRepository": "martinthomson/draft-pardue-capsule-ext-guidance",
+      "headRefName": "patch-1",
+      "headRefOid": "596605dc06d9a18300be9139b12c8e991df520a0",
+      "closedAt": "2024-10-22T04:03:33Z",
+      "mergedAt": "2024-10-22T04:03:33Z",
+      "mergedBy": "LPardue",
+      "mergeCommit": {
+        "oid": "58baa80c9dd74a57cf34e1004a3711c9711fd6ec"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
