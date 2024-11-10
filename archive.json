@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-07T01:07:02.946145+00:00",
+  "timestamp": "2024-11-10T01:11:19.246603+00:00",
   "repo": "LPardue/draft-pardue-capsule-ext-guidance",
   "labels": [
     {
@@ -113,6 +113,22 @@
           "updatedAt": "2024-10-22T04:01:17Z"
         }
       ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOKxOUVM6ddmMA",
+      "title": "The capsule-protocol header is janky",
+      "url": "https://github.com/LPardue/draft-pardue-capsule-ext-guidance/issues/5",
+      "state": "OPEN",
+      "author": "LPardue",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Preceeding and during IETF 121, its become clearer to the **wider** HTTP community that the `capusle-protocol` header is janky in a few ways. This isn't immediately obvious to protocol designers. There might be text we can write to make their lives better.",
+      "createdAt": "2024-11-07T17:57:26Z",
+      "updatedAt": "2024-11-07T17:57:26Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
